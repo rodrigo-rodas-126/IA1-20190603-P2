@@ -51,11 +51,71 @@ function regresionLineal(contenidoCSV){
     var linear = new LinearRegression()
     linear.fit(xTrain, yTrain)
     yPredict = linear.predict(xTrain)
-    document.getElementById("log").innerHTML+='<br>X Train:   '+xTrain+'<br>Y Train:   '+yTrain+'<br>Y Predict: '+yPredict
+    //document.getElementById("log").innerHTML+='<br>X Train:   '+xTrain+'<br>Y Train:   '+yTrain+'<br>Y Predict: '+yPredict
+    mostrarTablaEntrenamiento(xTrain, yTrain, yPredict);
+
     a = joinArrays('x',xTrain,'yTrain',yTrain,'yPredict',yPredict)
 
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
+}
+
+function mostrarTablaEntrenamiento(array1, array2, array3) {
+    // Crear tabla de datos de entrenamiento
+    const tabla = document.createElement("table");
+    tabla.style.borderCollapse = "collapse";
+    tabla.style.width = "40%";
+    const encabezado = tabla.insertRow();
+    const encabezadoCol1 = encabezado.insertCell();
+    const encabezadoCol2 = encabezado.insertCell();
+    encabezadoCol1.textContent = "X Train";
+    encabezadoCol2.textContent = "Y Train";
+    encabezadoCol1.style.border = "1px solid #000";
+    encabezadoCol2.style.border = "1px solid #000";
+    encabezadoCol1.style.padding = "8px";
+    encabezadoCol2.style.padding = "8px";
+    encabezadoCol1.style.fontWeight = "bold";
+    encabezadoCol2.style.fontWeight = "bold";
+    for (let i = 0; i < array1.length; i++) {
+        const fila = tabla.insertRow();
+        const celda1 = fila.insertCell();
+        const celda2 = fila.insertCell();
+        celda1.textContent = array1[i];
+        celda2.textContent = array2[i];
+        celda1.style.border = "1px solid #000";
+        celda2.style.border = "1px solid #000";
+        celda1.style.padding = "8px";
+        celda2.style.padding = "8px";
+    }
+    document.getElementById("log").appendChild(tabla);
+    // Crear tabla de predicciones
+    const tablaPrediccion = document.createElement("table");
+    tablaPrediccion.style.borderCollapse = "collapse";
+    tablaPrediccion.style.width = "40%";
+    tablaPrediccion.style.marginTop = "20px";
+    const encabezadoPrediccion = tablaPrediccion.insertRow();
+    const encabezadoCol1Prediccion = encabezadoPrediccion.insertCell();
+    const encabezadoCol2Prediccion = encabezadoPrediccion.insertCell();
+    encabezadoCol1Prediccion.textContent = "X";
+    encabezadoCol2Prediccion.textContent = "Y-Prediccion";
+    encabezadoCol1Prediccion.style.border = "1px solid #000";
+    encabezadoCol2Prediccion.style.border = "1px solid #000";
+    encabezadoCol1Prediccion.style.padding = "8px";
+    encabezadoCol2Prediccion.style.padding = "8px";
+    encabezadoCol1Prediccion.style.fontWeight = "bold";
+    encabezadoCol2Prediccion.style.fontWeight = "bold";
+    for (let i = 0; i < array1.length; i++) {
+        const fila = tablaPrediccion.insertRow();
+        const celda1 = fila.insertCell();
+        const celda2 = fila.insertCell();
+        celda1.textContent = array1[i];
+        celda2.textContent = array3[i];
+        celda1.style.border = "1px solid #000";
+        celda2.style.border = "1px solid #000";
+        celda1.style.padding = "8px";
+        celda2.style.padding = "8px";
+    }
+    document.getElementById("log").appendChild(tablaPrediccion);
 }
 
 
