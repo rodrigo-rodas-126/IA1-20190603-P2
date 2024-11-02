@@ -163,7 +163,7 @@ function regresionPolynomial(contenidoCSV){
     gradoError = polynomial.getError();
     mostrarTablaEntrenamientoPoly(xTrain, yTrain, predictArray, yPredict, grado, gradoError);
 
-    a = joinArrays('x', xTrain, 'yTrain', yTrain, `Prediction Grado ${grado}`, yPredict)
+    a = joinArrays('x', xTrain, 'yTrain', yTrain, `Prediccion Grado ${grado}`, yPredict)
 
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
