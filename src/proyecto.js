@@ -170,7 +170,7 @@ function regresionPolynomial(contenidoCSV){
 }
 
 
-function mostrarTablaEntrenamientoPoly(array1, array2, array3, array4, grado, error) {
+function mostrarTablaEntrenamientoPoly(array1, array2, array3, array4, grado, errorP) {
     // Crear tabla de datos de entrenamiento
     const tabla = document.createElement("table");
     tabla.style.borderCollapse = "collapse";
@@ -237,7 +237,8 @@ function mostrarTablaEntrenamientoPoly(array1, array2, array3, array4, grado, er
     }
     document.getElementById("log").appendChild(tablaPrediccion);
     const valorError = document.createElement("p");
-    valorError.value = error;
+    console.log("Error Prediccion ", errorP)
+    valorError.innerHTML = '<b>Error prediccion:</b> '+errorP;
     document.getElementById("log").appendChild(valorError);
 }
 
