@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 2 IA1</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <h1>Proyecto 2 - IA1</h1>
+    <nav>
+        <ul>
+            <li>
+                <select id="seleccionModelo" onchange="guardarSeleccion()">
+                    <option value="">Selecciona una opción</option>
+                    <option value="regresionLineal">Regresion Lineal</option>
+                </select>
+            </li>
+            <li><a href="#">Opciones</a>
+                <ul class="dropdown">
+                    <li><a href="#" onclick="entrenarModelo()">Entrenar</a></li>
+                    <li><a href="#" onclick="clean()">Limpiar</a></li>
+                </ul>
+            </li>
+            <!-- <li><a href="#">Opción 2</a>
+                <ul class="dropdown">
+                    <li><a href="#" onclick="subOpcion3()">Sub Opción 3</a></li>
+                    <li><a href="#" onclick="subOpcion4()">Sub Opción 4</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Opción 3</a>
+                <ul class="dropdown">
+                    <li><a href="#" onclick="subOpcion5()">Sub Opción 5</a></li>
+                    <li><a href="#" onclick="subOpcion6()">Sub Opción 6</a></li>
+                </ul>
+            </li> -->
+        </ul>
+    </nav>
+
+    <!-- Formulario para cargar CSV -->
+    <div class="file-upload">
+        <label for="csvFile">Selecciona Archivo:</label>
+        <input type="file" id="csvFile" accept=".csv" onchange="procesarCSV()">
+    </div>
+
+    <div id="resultados" class="resultados">
+
+    </div>
+    <div id="log" class="resultados">
+
+    </div>
+    <div id="resultadosGraficos" class="resultados">
+        <!-- Aquí se insertarán los gráficos o resultados -->
+        <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    </div>
+
+    <script src="src/tytus.js"></script>
+    <script src="src/proyecto.js"></script>
+</body>
+</html>
