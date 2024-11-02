@@ -34,6 +34,24 @@ El método procesarCSV() permite cargar un archivo CSV, procesar su contenido y 
         }
     }
 
+Los archivos CSV deben de llevar las siguientes estrcuturas para los modelos de Regresion Lineal
+
+    XTrain;YTrain
+    dato1;dato2
+    .
+    .
+    .
+    datoN;datoM
+
+Los archivos deben de llevar las siguientes estrcuturas para los modelos de Regresion Mutipolinomial
+
+    XTrain;YTrain;XToPredict
+    dato1;dato2;dato3
+    .
+    .
+    .
+    datoN;datoM;datoL
+
 ### Selección y Entrenamiento del Modelo
 
 La función entrenarModelo() recupera el modelo guardado en el almacenamiento local y, en base a la selección, ejecuta el entrenamiento con regresionLineal() o regresionPolynomial().
